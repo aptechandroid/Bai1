@@ -37,8 +37,19 @@ public class RecyclviewActivity extends AppCompatActivity {
 
         mLinearLayout = new LinearLayoutManager(this);
         mAdapter = new RecycleViewAdapter();
-        mRecycleView.setLayoutManager(mGridLayout);
+        mRecycleView.setLayoutManager(mLinearLayout);
         mRecycleView.setAdapter(mAdapter);
 
+        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
     }
 }
